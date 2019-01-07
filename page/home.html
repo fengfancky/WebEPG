@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8;1280*720">
+        <title>山城影院</title>
+        <link rel="stylesheet" href="../css/style.css"/>
+        <link rel="stylesheet" href="../css/home.css"/>
+    
+    </head>
+
+    <body >
+        <div id="wraper">
+            <!-- 背景 -->
+            <div><img id="img_bg" src="../img/bg.png" height="720" width="1280"/></div>
+
+            <!-- 消息推送  -->
+            <div class="fixed_top">
+                <div class="msg_icon"><img  src="../img/news-icon.png"></div>
+                <div class="msg_text">明天全市可能有强降雨，大家出门请带好雨伞</div>
+            </div>
+
+            <!-- 搜索 -->
+            <div class="search_area">
+                <div class="search_pic"></div>
+                <div class="search_txt">搜索</div>
+            </div>
+
+            <!-- 用户 我的 -->
+            <div class="user_area">
+                <div class="user_pic"></div>
+                <div class="user_txt">我的</div>
+            </div>
+
+            <!-- 时间 -->
+            <div id="current_time">2018/12/27 14:48 星期四</div>
+
+            <!-- 导航条 -->
+            <div class="nav">
+                <div><img id="nav_bg" src="../img/nav-bg.png"></div>
+                <div tabindex=-1 class="item" id="nav_item1" >首页</div>
+                <div tabindex=-1 class="item" id="nav_item2">频道</div>
+                <div tabindex=-1 class="item" id="nav_item3">点播</div>
+                <div tabindex=-1 class="item" id="nav_item4">影视增值</div>
+                <div tabindex=-1 class="item" id="nav_item5">沃家影视</div>
+            </div>
+
+            <!-- 推荐内容 -->
+            <div class="content">
+                <img tabindex=-1 id="img1" class="content_focus" src="../img/live_telecast.png">
+                <img tabindex=-1 class="content_img content_focus" id="img2" src="../img/a1.png">
+                <img tabindex=-1 class="content_img content_focus" id="img3" src="../img/a2.png">
+                <img tabindex=-1 class="content_img content_focus" id="img4" src="../img/a3.png">
+                <img tabindex=-1 class="content_img content_focus" id="img5" src="../img/a4.png">
+                <img tabindex=-1 id="img6" class="content_focus" src="../img/banner.png">
+                <img tabindex=-1 id="img7" class="content_focus" src="../img/bottom_pic_thumbs01.jpg">
+                <img tabindex=-1 id="img8" class="content_focus" src="../img/poster_first_pic.png">
+                <img tabindex=-1 id="img9" class="content_focus" src="../img/poster_thumbs_pic.png">
+                <img tabindex=-1 id="img10" class="content_focus" src="../img/banner.png">
+
+            </div>
+            
+            <!-- <div id="superFocus" ></div> -->
+        </div>
+        
+    </body>
+    
+    <script type="text/javascript" src="../js/date.js"></script> 
+    <script type="text/javascript" src="../js/focusMap.js"></script> 
+
+    <script>
+
+      (function (window, document){
+
+        var dateObj = null;
+        var dateTimer = null;
+        var focusMapObj = null;
+
+        window.addEventListener("load",function(){
+            window.focus();
+            if(!dateObj){
+                dateObj = new Control();
+            }
+
+            if(!focusMapObj){
+                focusMapObj = new FocusMap();
+            }
+
+            dateObj.updateTime();
+
+            document.getElementById("nav_item1").focus();
+
+        })
+
+        window.addEventListener("unload",function(){
+
+            if(!dateTimer){
+                clearInterval(dateTimer);
+            }
+        })
+
+        window.addEventListener("keydown",function(){
+            var arr = focusMapObj.getFocusMapById(document.activeElement.id);
+            console.log(event.keyCode);
+            switch(event.keyCode){
+                case 37://左
+
+                    if(arr[0]){
+                        document.getElementById(arr[0]).focus();  
+                    }
+                    break;
+                case 38://上
+                  
+                    if(arr[1]){
+                        document.getElementById(arr[1]).focus();  
+                    }
+                    break;
+                case 39://右
+                    
+                    if(arr[2]){
+                        document.getElementById(arr[2]).focus();  
+                    }
+                    break;
+                case 40://下
+                   
+                    if(arr[3]){
+                        document.getElementById(arr[3]).focus();  
+                    }
+                    break;
+                case 13://确认
+                        alert(document.activeElement.id)
+                    break;
+
+            }
+            
+        })
+
+
+      })(window, document);
+
+      function myfocus(x){
+        x.style.background= "red"
+      }
+
+      function myblur(x){
+        x.style.background="transparent"
+      }
+
+
+        
+    </script>
+   
+</html>

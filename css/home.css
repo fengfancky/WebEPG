@@ -1,0 +1,249 @@
+.fixed_top{
+    position: absolute;
+}
+
+.msg_icon{
+    position: absolute;
+    left: 300px;
+    top: 30px;
+}
+
+.msg_text{
+    position: absolute;
+    left: 340px;
+    top: 27px;
+    width: 500px;
+    font-size: 18px;
+}
+
+.search_area{
+    position: absolute;
+}
+.search_pic{
+    position: absolute;
+    top: 30px;
+    left:800px;
+    width: 20px;
+    height: 19px;
+    background: url(../img/serach_dark.png) no-repeat;
+}
+
+.search_txt{
+    position: absolute;
+    top: 27px;
+    left: 830px;
+    width: 50px;
+    font-size: 18px;
+    color: #aaa;
+
+}
+.user_area{
+    position: absolute;
+}
+.user_pic{
+    position: absolute;
+    top: 30px;
+    left:900px;
+    width: 20px;
+    height: 19px;
+    background: url(../img/serach_dark.png) no-repeat;
+}
+
+.user_txt{
+    position: absolute;
+    top: 27px;
+    left: 930px;
+    width: 50px;
+    font-size: 18px;
+    color: #aaa;
+}
+#current_time{
+    position: absolute;
+    top: 27px;
+    left: 1020px;
+    width: 260px;
+    font-size: 18px;
+    color: #aaa;
+}
+
+.nav{
+    position:absolute;
+    top: 80px;
+    height: 60px;
+    
+}
+
+.item{
+    position: absolute;
+    line-height: 60px;
+    width: 160px;
+    text-align: center;
+    background: transparent;
+    outline: none;
+}
+
+.item:focus{
+    -webkit-animation: mymove 2s ; /* Chrome, Safari, Opera */
+    animation: mymove 2s ;
+    background:red;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {background-color:transparent;}
+    to {background-color:red;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    from {background-color:transparent;}
+    to {background-color:red;}
+}
+
+
+#nav_item1{
+    left: 20px;
+}
+
+#nav_item2{
+    left: 180px;
+}
+
+#nav_item3{
+    left: 340px;
+    
+}
+
+#nav_item4{
+    left: 500px;
+}
+
+#nav_item5{
+    left: 660px;
+}
+
+.content{
+    position:absolute;
+    top: 160px;
+}
+
+.content_focus{
+    outline: none;
+    border: 2px solid transparent;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out; /* Safari */
+}
+
+.content_focus:focus{
+   
+    border-radius: 5px;
+    /* box-shadow:white 0px 0px 10px ; */
+    transform: scale(1.1);
+    -ms-transform:scale(1.1);     /* IE 9 */
+    -moz-transform:scale(1.1);     /* Firefox */
+    -webkit-transform:scale(1.1); /* Safari 和 Chrome */
+    -o-transform:scale(1.1);
+    -webkit-animation: borderMove .3s ; 
+    animation: borderMove .3s ;
+    border: 2px solid white;
+    z-index: 8;
+}
+
+/* .content_focus:focus{
+    border-radius: 5px;
+    -webkit-animation: borderMove 2s infinite; 
+    animation: borderMove 2s infinite;
+
+} */
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes borderMove {
+    50% {border: 2px solid white;
+        z-index: 8;}
+    
+}
+
+/* Standard syntax */
+@keyframes borderMove {
+    50% {border: 2px solid white;
+        z-index: 8;}
+}
+
+.content_img{
+    width: 155px;
+    height: 150px;
+}
+
+#img1{
+    width: 320px;
+    height: 200px;
+    left: 40px;
+}
+
+#img2{
+    left: 40px;
+    top: 210px;
+}
+
+#img3{
+    left: 205px;
+    top: 210px;
+}
+
+#img4{
+    left: 40px;
+    top: 370px;
+}
+
+#img5{
+    left: 205px;
+    top: 370px;
+}
+
+#img6{
+    left:370px;
+    width: 640px;
+    height: 360px;
+}
+
+#img7{
+    left: 370px;
+    width: 315px;
+    height:150px;
+    top: 370px;
+}
+
+#img8{
+    left: 695px;
+    width: 315px;
+    height:150px;
+    top: 370px;
+}
+
+#img9{
+    left: 1020px;
+    width: 220px;
+    height: 360px;
+}
+
+#img10{
+    left: 1020px;
+    width: 220px;
+    height: 150px;
+    top: 370px;
+}
+
+#superFocus{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 8;
+    width: 200px;
+    height: 200px;
+    border: 4px solid red;
+    border-radius: 5px;
+    box-shadow: 5px;
+
+}
+
+

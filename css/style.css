@@ -1,0 +1,228 @@
+/* S= CSS Reset
+----------------------------------------------- */
+body, table, caption, tbody, tfoot, thead, tr, th, td, ul, li, p, h1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-size: 24px;
+    font-family: "微软雅黑 Light", serif;
+    line-height: 100%;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    position: absolute;
+    border: 0;
+}
+
+.super_focus {
+    position: absolute;
+    /*border: 3px solid #fff7e0;*/
+    /*border: 3px solid #000;*/
+    z-index: 8;
+    transition-duration: 200ms;
+    -moz-transition-duration: 200ms; /* Firefox 4 */
+    -webkit-transition-duration: 200ms; /* Safari 和 Chrome */
+    -o-transition-duration: 200ms; /* Opera */
+}
+
+
+
+/* S= Global
+----------------------------------------------- */
+body, .wrapper, .pagebg {
+    height: 720px;
+    width: 1280px;
+    overflow: hidden;
+}
+
+body {
+    color: #ffffff;
+    position: relative;
+}
+
+.wrapper, .pagebg {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.pagebg img {
+    display: block; /* clear some space 对于html5中背景图比原高度多出3PX的问题*/
+}
+
+.item, .link, .txt-wrap, .txt, .btn, .icon, .pic, .pic-shade, .cover, .num {
+    position: absolute;
+}
+
+.txtHidden {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.clearfix:after {
+    clear: both;
+    content: '';
+    display: block;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.item_focus {
+    z-index: 9;
+}
+
+/*
+文字过短需居中时 width < 外部容器单位宽度 时 span class="txtSlideWrap txtNoSlide"
+文字过长需滚动时 width > 外部容器单位宽度 时 span class="txtSlideWrap"
+*/
+span.txtSlideWrap,
+span.txtSlideWrap div,
+span.txtNoSlide div {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+span.txtSlideWrap {
+    display: block;
+    height: 100%;
+    width: 100% !important;
+    overflow: hidden;
+    position: relative;
+}
+
+span.txtSlideWrap div {
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+}
+
+span.txtNoSlide div {
+    width: 100%;
+}
+
+.pigbg {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* E= Global */
+.playLayer { /*voice*/
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+
+.btn-r-operate {
+    left: 1129px;
+    position: absolute;
+    top: 35px;
+}
+
+.playBox03 {
+    background: url(../images/indexVolume/play-bottomBg03.png) no-repeat;
+    left: 222px;
+    position: absolute;
+    top: 599px;
+    height: 58px;
+    width: 835px;
+}
+
+.progress-bar {
+    background: url(../images/indexVolume/progress-barBg.png) no-repeat;
+    left: 123px;
+    position: absolute;
+    top: 69px;
+    height: 50px;
+    width: 965px;
+}
+
+.progress-bar .bar, .progress-bar .point, .progress-bar .point_focus, .progress-bar-voice .bar, .progress-bar-voice .point, .progress-bar-voice .point_focus {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.progress-bar .bar {
+    background: url(../images/indexVolume/progress-barBg_focus.png) no-repeat;
+    height: 50px;
+}
+
+.progress-bar .point .item, .progress-bar-voice .point .item {
+    background: url(../images/indexVolume/progress-point.png) no-repeat;
+    height: 50px;
+    width: 50px;
+}
+
+.progress-bar .point .item_focus, .progress-bar-voice .point .item_focus {
+    background: url(../images/indexVolume/progress-point_focus.png) no-repeat;
+}
+
+.progress-bar-voice {
+    background: url(../images/indexVolume/voice-barBg.png) no-repeat;
+    left: 66px;
+    position: absolute;
+    top: 4px;
+    height: 50px;
+    width: 750px;
+}
+
+.progress-bar-voice .bar {
+    background: url(../images/indexVolume/voice-barBg_focus.png) no-repeat;
+    height: 50px;
+}
+
+/*公共样式*/
+
+/*news公告*/
+.news{position: absolute;top: 25px;left: 310px;width:460px;height:26px;background: url(../images/news_bg.png) no-repeat;overflow: hidden;}
+.news .news_icon{position: absolute;top:4px;left: 5px; width:21px;height:18px;}
+.news .news_icon img{position: absolute;width:21px;height:18px;}
+.news .news_txt{position: absolute;left: 31px;width:425px;height:26px;line-height: 26px;font-size: 16px;color: #fff;}
+
+/*日期*/
+.now {position: absolute;top: 28px;left: 1008px;}
+.now  .txt-wrap {height:20px;}
+.now .time .txt-wrap {width:70px;}
+.now .date .txt-wrap {width:100px;}
+.now .week .txt-wrap {width:80px;}
+.now .txt {font-size:18px;color:#788693;font-weight: bold;}
+
+/*.top_btn*/
+.top_btn {position: absolute;top: 27px;left: 835px;}
+.top_btn .item {width:68px;height:22px;}
+.top_btn .item  .txt{font-size: 18px;  color: #778796;font-weight: bold;  width: 40px;height: 19px;line-height: 19px;left: 25px;top:2px;}
+.top_btn .item_focus  .txt{ color: #fff;}
+.top_btn .item  .pic01{background: url(../images/portal/serach_dark.png) no-repeat;width:20px;height:19px;top:2px;}
+.top_btn .item_focus  .pic01{background: url(../images/portal/serach.png) no-repeat;width: 26px;height: 25px;top: -1px;left:-2px;}
+.top_btn .item  .pic02{background: url(../images/portal/my_dark.png) no-repeat;width:19px;height:19px;top:2px;}
+.top_btn .item_focus  .pic02{background: url(../images/portal/my.png) no-repeat;width:22px;height:21px;top:0;left:-2px;}
+
+
+/*.top-nav*/
+.top-nav{position: absolute;top: 73px;height:59px;width:1280px;background: url(../images/nav-bg.png) no-repeat;}
+.top-nav .item{ width: 137px;height: 59px; line-height: 59px;}
+.top-nav .item_focus{width: 137px;height: 59px; background: url(../images/nav-focus.png) no-repeat;}
+.top-nav .item_select{width: 137px;height: 59px; background: url(../images/nav-select.png) no-repeat;}
+.top-nav .item .txt{font-size: 23px;width: 137px;height: 59px; line-height: 59px;text-align: center;}
+.top-nav .item .more{position: absolute;top: 27px;left: 119px;}
