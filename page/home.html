@@ -16,7 +16,7 @@
             <!-- 消息推送  -->
             <div class="fixed_top">
                 <div class="msg_icon"><img  src="../img/news-icon.png"></div>
-                <div class="msg_text">明天全市可能有强降雨，大家出门请带好雨伞</div>
+                <div class="msg_text" id="msg">明天全市可能有强降雨，大家出门请带好雨伞</div>
             </div>
 
             <!-- 搜索 -->
@@ -66,6 +66,8 @@
     
     <script type="text/javascript" src="../js/date.js"></script> 
     <script type="text/javascript" src="../js/focusMap.js"></script> 
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+
 
     <script>
 
@@ -74,6 +76,7 @@
         var dateObj = null;
         var dateTimer = null;
         var focusMapObj = null;
+        var xmlhttp = null;
 
         window.addEventListener("load",function(){
             window.focus();
@@ -134,6 +137,8 @@
             
         })
 
+        getData();
+
 
       })(window, document);
 
@@ -143,6 +148,32 @@
 
       function myblur(x){
         x.style.background="transparent"
+      }
+
+      function getData(){
+          console.log("ok");
+          if(window.XMLHttpRequest){
+
+            xmlhttp = new XMLHttpRequest();
+
+          }else{
+
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+          }
+
+          xmlhttp.onreadystatechange = function(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                console.log(xmlhttp.status);
+                document.getElementById("msg").innerHTML = xmlhttp.responseText;
+                
+            }else{
+                console.log(xmlhttp.readyState+":"+xmlhttp.status);
+            }
+          }
+
+          xmlhttp.open("GET","http://10.0.100.173:8099/epgpage/6300000002.json",true);
+          xmlhttp.send();
       }
 
 
