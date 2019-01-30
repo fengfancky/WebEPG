@@ -11,7 +11,7 @@
     <body >
         <div id="wraper">
             <!-- 背景 -->
-            <div><img id="img_bg" src="../img/bg.png" height="720" width="1280"/></div>
+            <div><img id="img_bg" src="..\img\bg.png" height="720" width="1280"/></div>
 
             <!-- 消息推送  -->
             <div class="fixed_top">
@@ -59,7 +59,7 @@
 
             </div>
             
-            <!-- <div id="superFocus" ></div> -->
+            <div id="superFocus" ></div>
         </div>
         
     </body>
@@ -67,7 +67,7 @@
     <script type="text/javascript" src="../js/date.js"></script> 
     <script type="text/javascript" src="../js/focusMap.js"></script> 
     <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
-
+    <script type="text/javascript" src="../js/Tween.js"></script>
 
     <script>
 
@@ -77,6 +77,12 @@
         var dateTimer = null;
         var focusMapObj = null;
         var xmlhttp = null;
+        var position ;
+        var view = null;
+        var target = document.getElementById("superFocus");
+        var oldx = 0,oldy = 0,oldw = 0,oldh = 0;
+        var count = 30;
+
 
         window.addEventListener("load",function(){
             window.focus();
@@ -103,30 +109,69 @@
 
         window.addEventListener("keydown",function(){
             var arr = focusMapObj.getFocusMapById(document.activeElement.id);
-            console.log(event.keyCode);
+
+            oldx = document.activeElement.offsetLeft;
+            oldy = document.activeElement.offsetTop;
+            oldw = document.activeElement.offsetWidth;
+            oldh = document.activeElement.offsetHeight;
+            
             switch(event.keyCode){
                 case 37://左
 
                     if(arr[0]){
                         document.getElementById(arr[0]).focus();  
+                        view = document.getElementById(arr[0])
+
+                        if(view.id.indexOf("nav_") == -1){
+                            target.style.visibility = "visible";
+                            // buildMove();
+                            move();
+                        }else{
+                            target.style.visibility = "hidden";
+                        }
+                        
                     }
                     break;
                 case 38://上
                   
                     if(arr[1]){
                         document.getElementById(arr[1]).focus();  
+                        view = document.getElementById(arr[1])
+                        if(view.id.indexOf("nav_") == -1){
+                            target.style.visibility = "visible";
+                            // buildMove();
+                            move();
+                        }else{
+                            target.style.visibility = "hidden";
+                        }
                     }
                     break;
                 case 39://右
                     
                     if(arr[2]){
                         document.getElementById(arr[2]).focus();  
+                        view = document.getElementById(arr[2])
+                        if(view.id.indexOf("nav_") == -1){
+                            target.style.visibility = "visible";
+                            // buildMove();
+                            move();
+                        }else{
+                            target.style.visibility = "hidden";
+                        }
                     }
                     break;
                 case 40://下
                    
                     if(arr[3]){
                         document.getElementById(arr[3]).focus();  
+                        view = document.getElementById(arr[3])
+                        if(view.id.indexOf("nav_") == -1){
+                            target.style.visibility = "visible";
+                            // buildMove();
+                            move();
+                        }else{
+                            target.style.visibility = "hidden";
+                        }
                     }
                     break;
                 case 13://确认
@@ -136,6 +181,67 @@
             }
             
         })
+
+        function move(){
+           
+            var id;
+            var step = 0;
+
+            position = {x:oldx,y:oldy,width:oldw,height:oldh};
+
+            console.log(position)
+            function frame(){
+                
+                step+=1;
+
+                var step_left = (view.offsetLeft-position.x) / count
+                var step_top = (view.offsetTop-position.y) / count
+                var step_width = (view.offsetWidth-position.width) / count
+                var step_height = (view.offsetHeight-position.height) / count
+
+                 target.style.left = (position.x+step_left*step-4)+ "px";
+                 target.style.top = (position.y+step_top*step +160-4)+ "px";
+                 target.style.width = (position.width+step_width*step) +"px";
+                 target.style.height = (position.height+step_height*step) +"px";
+
+                  if(step == count){
+                        clearInterval(id);
+                   }
+                }
+
+                id = setInterval(frame,10);
+        
+        }
+
+            
+    
+        function buildMove(){
+            position = {x:oldx,y:oldy,width:oldw,height:oldh};
+        
+            var tween = new TWEEN.Tween(position)
+                        .to({ x: view.offsetLeft,y:view.offsetTop,width:view.offsetWidth,height:view.offsetHeight }, 300)
+                        .onUpdate(update)
+                        .easing(TWEEN.Easing.Cubic.InOut)
+                        .delay(100);
+                            
+            tween.start();
+            animate();
+
+        }
+
+        function animate() {
+	        requestAnimationFrame(animate);
+	        TWEEN.update();
+        }
+
+        function update(){
+            
+            target.style.left = (position.x-4)+ "px";
+            target.style.top = (position.y +160-4)+ "px";
+            target.style.width = (position.width) +"px";
+            target.style.height = (position.height) +"px";
+        
+        }
 
         getData();
 
@@ -149,6 +255,8 @@
       function myblur(x){
         x.style.background="transparent"
       }
+
+
 
       function getData(){
           console.log("ok");
@@ -172,7 +280,7 @@
             }
           }
 
-          xmlhttp.open("GET","http://10.0.100.173:8099/epgpage/6300000002.json",true);
+          xmlhttp.open("GET","http://127.0.0.1:3000",true);
           xmlhttp.send();
       }
 
