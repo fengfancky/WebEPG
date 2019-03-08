@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8;1280*720">
+        <title>列表</title>
+        <link rel="stylesheet" href="../css/style.css"/>
+        <link rel="stylesheet" href="../css/list.css"/>
+    </head>
+
+    <body>
+        <ul id="class_list">
+            
+        </ul>
+    </body>
+    <script>
+
+    (function(window, document){
+        getData();
+
+
+        window.addEventListener("keydown",function(){
+            var view = document.getElementById(document.activeElement.id);
+            
+            
+            switch(event.keyCode){
+                case 37://左
+                    break;
+                case 38://上
+                    
+                    var id = 'list_li_'+(parseInt(view.getAttribute('value'))-1);
+                    if(document.getElementById(id)){
+                        document.getElementById(id).focus();
+                    }
+                    
+                    break;
+                case 39://右
+                    
+                    break;
+                case 40://下
+                    var id = 'list_li_'+(parseInt(view.getAttribute('value'))+1);
+                   if(document.getElementById(id)){
+                        document.getElementById(id).focus();
+                    }
+                    break;
+                case 13://确认
+                        alert(document.activeElement.id)
+                    break;
+
+            }
+            
+        })
+
+    })(window, document);
+    
+
+    function getData(){
+          if(window.XMLHttpRequest){
+
+            xmlhttp = new XMLHttpRequest();
+
+          }else{
+
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+          }
+
+          xmlhttp.onreadystatechange = function(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                
+                var strs = xmlhttp.responseText.split('\n');
+                var tbody = '';
+                for(var i=0;i<strs.length-1;i++){
+                    console.log(strs[i]);
+                    tbody +='<li tabindex=-1 id = list_li_'+i+' value = '+i+'>'+strs[i] +'</li>';
+                }
+
+                document.getElementById('class_list').innerHTML=tbody;
+                document.getElementById("list_li_0").focus();
+
+                
+            }else{
+                // console.log(xmlhttp.readyState+":"+xmlhttp.status);
+            }
+          }
+
+          xmlhttp.open("GET","http://119.23.60.190:3000",true);
+          xmlhttp.send();
+      }
+
+    
+    </script>
+
+
+</html>

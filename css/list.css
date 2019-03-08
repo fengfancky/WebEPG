@@ -1,0 +1,35 @@
+ul{
+    position: absolute;
+}
+
+li{
+    height: 50px;
+    line-height: 50px;
+    border: 1px gray solid;
+    text-align: center;
+    background: transparent;
+    color:black;
+    outline: none;
+    margin: 10px;
+    padding:10px ;
+
+    transition:All 0.3s ease-in-out;
+    -webkit-transition:All 0.3s ease-in-out;
+    -moz-transition:All 0.3s ease-in-out;
+    -o-transition:All 0.3s ease-in-out;
+
+}
+
+li:focus{
+    background: brown;
+    border: 1px brown solid;
+    color:white;
+    transform:scale(1.1);
+    -webkit-transform:scale(1.1);
+    -moz-transform:scale(1.1);
+    -o-transform:scale(1.1);
+    -ms-transform:scale(1.1);
+    z-index: 8;
+
+}
+
