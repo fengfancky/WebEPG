@@ -37,16 +37,16 @@
             <!-- 导航条 -->
             <div class="nav">
                 <div><img id="nav_bg" src="../img/nav-bg.png"></div>
-                <div tabindex=0 class="item" id="nav_item1" >首页</div>
-                <div tabindex=1 class="item" id="nav_item2">频道</div>
-                <div tabindex=2 class="item" id="nav_item3">点播</div>
-                <div tabindex=3 class="item" id="nav_item4">影视增值</div>
-                <div tabindex=4 class="item" id="nav_item5">沃家影视</div>
+                <div tabindex=-1 class="item" id="nav_item1" >首页</div>
+                <div tabindex=-1 class="item" id="nav_item2">频道</div>
+                <div tabindex=-1 class="item" id="nav_item3">点播</div>
+                <div tabindex=-1 class="item" id="nav_item4">影视增值</div>
+                <div tabindex=-1 class="item" id="nav_item5">沃家影视</div>
             </div>
 
             <!-- 推荐内容 -->
             <div class="content">
-                <img tabindex=5 id="img1" class="content_focus" src="../img/live_telecast.png">
+                <img tabindex=-1 id="img1" class="content_focus" src="../img/live_telecast.png">
                 <img tabindex=-1 class="content_img content_focus" id="img2" src="../img/a1.png">
                 <img tabindex=-1 class="content_img content_focus" id="img3" src="../img/a2.png">
                 <img tabindex=-1 class="content_img content_focus" id="img4" src="../img/a3.png">
@@ -110,6 +110,7 @@
                     {id:"img9",nav:"top",target:"nav_item1"},                   
                     {id:"nav_item3",nav:"bottom",target:"img1"}                    
             ];
+            
             dateObj.updateTime();
             document.getElementById("nav_item1").focus();
 
@@ -135,77 +136,6 @@
             }
         })
         
-
-        // window.addEventListener("keydown",function(){
-        //     var arr = focusMapObj.getFocusMapById(document.activeElement.id);
-
-        //     oldx = document.activeElement.offsetLeft;
-        //     oldy = document.activeElement.offsetTop;
-        //     oldw = document.activeElement.offsetWidth;
-        //     oldh = document.activeElement.offsetHeight;
-            
-        //     switch(event.keyCode){
-        //         case 37://左 
-
-
-        //             // view = document.getElementById(findElement.getNextLeftEle(document.activeElement.id));
-        //             view = document.getElementById(FocusUtils.FindElement.getNextLeftEle(document.activeElement.id));
-        //             if(view){
-        //                 view.focus();
-        //             }
-                   
-                    
-        //             // if(arr[0]){
-        //             //     document.getElementById(arr[0]).focus();  
-        //             //     view = document.getElementById(arr[0])
-        //             //     setNavVisibility();  
-        //             // }
-
-        //             break;
-        //         case 38://上
-
-        //             // view = document.getElementById(findElement.getNextTopEle(document.activeElement.id));
-        //             view = document.getElementById(FocusUtils.FindElement.getNextTopEle(document.activeElement.id));
-        //             if(view){
-        //                 view.focus();
-        //             }
-        //             // if(arr[1]){
-        //             //     document.getElementById(arr[1]).focus();  
-        //             //     view = document.getElementById(arr[1])
-        //             //     setNavVisibility();
-        //             // }
-        //             break;
-        //         case 39://右
-        //             // view = document.getElementById(findElement.getNextRightEle(document.activeElement.id));
-        //             view = document.getElementById(FocusUtils.FindElement.getNextRightEle(document.activeElement.id));
-        //             if(view){
-        //                 view.focus();
-        //             }
-        //             // if(arr[2]){
-        //             //     document.getElementById(arr[2]).focus();  
-        //             //     view = document.getElementById(arr[2])
-        //             //     setNavVisibility();
-        //             // }
-        //             break;
-        //         case 40://下
-        //             // view = document.getElementById(findElement.getNextBottomEle(document.activeElement.id));
-        //             view = document.getElementById(FocusUtils.FindElement.getNextBottomEle(document.activeElement.id));
-        //             if(view){
-        //                 view.focus();
-        //             }
-        //             // if(arr[3]){
-        //             //     document.getElementById(arr[3]).focus();  
-        //             //     view = document.getElementById(arr[3])
-        //             //     setNavVisibility();
-        //             // }
-        //             break;
-        //         case 13://确认
-        //                 alert(document.activeElement.id)
-        //             break;
-
-        //     }
-            
-        // })
 
         function move(){
 
@@ -293,40 +223,40 @@
 
       })(window, document);
 
-      function myfocus(x){
-        x.style.background= "red"
-      }
+    //   function myfocus(x){
+    //     x.style.background= "red"
+    //   }
 
-      function myblur(x){
-        x.style.background="transparent"
-      }
+    //   function myblur(x){
+    //     x.style.background="transparent"
+    //   }
 
 
 
-      function getData(){
-          if(window.XMLHttpRequest){
+    //   function getData(){
+    //       if(window.XMLHttpRequest){
 
-            xmlhttp = new XMLHttpRequest();
+    //         xmlhttp = new XMLHttpRequest();
 
-          }else{
+    //       }else{
 
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    //         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 
-          }
+    //       }
 
-          xmlhttp.onreadystatechange = function(){
-            if (xmlhttp.readyState==4 && xmlhttp.status==200){
-                console.log(xmlhttp.status);
-                document.getElementById("msg").innerHTML = xmlhttp.responseText;
+    //       xmlhttp.onreadystatechange = function(){
+    //         if (xmlhttp.readyState==4 && xmlhttp.status==200){
+    //             console.log(xmlhttp.status);
+    //             document.getElementById("msg").innerHTML = xmlhttp.responseText;
                 
-            }else{
-                console.log(xmlhttp.readyState+":"+xmlhttp.status);
-            }
-          }
+    //         }else{
+    //             console.log(xmlhttp.readyState+":"+xmlhttp.status);
+    //         }
+    //       }
 
-          xmlhttp.open("GET","http://127.0.0.1:8080/msg",true);
-          xmlhttp.send();
-      }
+    //       xmlhttp.open("GET","http://127.0.0.1:8080/msg",true);
+    //       xmlhttp.send();
+    //   }
 
 
         

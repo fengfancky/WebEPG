@@ -25,13 +25,16 @@
     function getSpecialNav(id,nav){
         var res = "";
 
-        for(var i=0;i<specialArray.length;i++){
-            if(specialArray[i].id == id && specialArray[i].nav == nav){
-                res = specialArray[i].target;
-                break;
+        if(specialArray!=null & (specialArray instanceof Array)){
+            for(var i=0;i<specialArray.length;i++){
+                if(specialArray[i].id == id && specialArray[i].nav == nav){
+                    res = specialArray[i].target;
+                    break;
+                }
+                
             }
-            
         }
+        
 
         // specialArray.forEach(element => {
         //     if(element.id == id && element.nav == "top"){
@@ -39,10 +42,7 @@
         //     }
         //     return;
         // });
-        if(res!=null && res!=""){
-            console.log(res);
-            return res;
-        }
+        return res;
     }
             
     window["FocusUtils"].FindElement = {
