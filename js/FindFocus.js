@@ -128,10 +128,10 @@
         *
         */
         setClassName:function(name){
-			if(name !=null & name != ""){
-				className = name;
-			}	
-		},
+	    if(name !=null & name != ""){
+		className = name;
+	    }	
+	},
 
          /**
          * 获取焦点之前的操作
