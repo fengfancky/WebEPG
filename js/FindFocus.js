@@ -6,6 +6,7 @@
     var beforeRight = null;
     var beforeLeft = null;
     var back = null;
+    var className = ".item";
 
     /**
      * 寻找所需方向上最近或最合适的元素
@@ -121,6 +122,16 @@
     }
 
     window["FindFocus"].FocusKeyEvent = {
+        
+        /**
+        *设置需要获取焦点的元素的类名默认为 ".item" ，不一致时需设置
+        *
+        */
+        setClassName:function(name){
+			if(name !=null & name != ""){
+				className = name;
+			}	
+		},
 
          /**
          * 获取焦点之前的操作
@@ -166,7 +177,7 @@
 
     window.addEventListener("keydown",function(){
         
-        var list = document.querySelectorAll(".item");
+        var list = document.querySelectorAll(className);
 
         switch(event.keyCode){
             case 37://左 
